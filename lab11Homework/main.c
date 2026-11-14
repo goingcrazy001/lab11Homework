@@ -1,4 +1,5 @@
-﻿#include <stdio.h>
+
+#include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -15,51 +16,51 @@ struct book {
 
 typedef struct book Book;
 Book OutputBook(Book buk);
-Book Input();
+Book InputBook();
 int check(Book kniga, int year);
 
 
 int main() {
-   
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Russian");
-    Book book1, book2, book3, b1, b2, b3
-    int year; 
+    Book book1, book2, book3, b1, b2, b3;
+    int year;
     printf("--- Ввод данных о книгах ---\n");
 
     printf("\nКнига 1:\n");
-    b1=InputBook();
+    b1 = InputBook();
     printf("\nКнига 2:\n");
-    b2=InputBook();
+    b2 = InputBook();
     printf("\nКнига 3:\n");
-    b3=InputBook();
-    
+    b3 = InputBook();
+
     printf("\nВведите год, после которого книги должны быть изданы (например, 1950): ");
     scanf("%d", &year);
     printf("\n--- Книги, изданные после %d, с >= 300 страниц и > 0 экземпляров ---\n", year);
-
-    if check(b1,year)==1)
-{
-    printf("\n Найдена книга 1: \n");
-    OutputBook(b1);
-}
-    if check(b2,year)==1)
-{
-    printf("\n Найдена книга 2: \n");
-    OutputBook(b2);
-}
-    if check(b3,year)==1)
-{
-    printf("\n Найдена книга 3: \n");
-    OutputBook(b3);
-}
-    if (check(b3,year)==0 && check(b2,year)==0 && check(b1,year)==0)
+    
+    if (check(b1, year) == 1)
+    {
+        printf("\n Найдена книга 1: \n");
+        OutputBook(b1);
+    }
+    if (check(b2, year) == 1)
+    {
+        printf("\n Найдена книга 2: \n");
+        OutputBook(b2);
+    }
+    if (check(b3, year) == 1)
+    {
+        printf("\n Найдена книга 3: \n");
+        OutputBook(b3);
+    }
+    if (check(b3, year) == 0 && check(b2, year) == 0 && check(b1, year) == 0)
     {
         printf("\nКниги, соответствующие вашим условиям, не найдены.\n");
     }
 
-    return 2;
+return 2;
 }
 Book InputBook()
 {
@@ -76,10 +77,10 @@ Book InputBook()
     scanf(" %[^\n]%*c", &b.genre);
     printf("Количество экземпляров: ");
     scanf("%d", &b.quantity);
-    return b:
+    return b;
 }
-int check(Book kniga, int year){
-    if (kniga.publication_year>year && kniga.pages>=300 && lniga.quantity >0) 
+int check(Book kniga, int year) {
+    if (kniga.publication_year > year && kniga.pages >= 300 && kniga.quantity > 0)
     {
         return 1;
     }
@@ -88,9 +89,10 @@ int check(Book kniga, int year){
     }
 }
 Book OutputBook(Book buk) {
-    printf("Название: ", buk.title);
-    printf("Автор: ", buk.author);
-    printf("Год издания: ", buk.publication_year);
-    printf("Количество страниц: ", buk.pages);
-    printf("Жанр: ", buk.genre);
-    printf("Количество экземпляров: ", buk.quantity);
+    printf(" Название: %s\n", buk.title);
+    printf(" Автор: %s\n", buk.author);
+    printf(" Год издания: %d\n", buk.publication_year);
+    printf(" Количество страниц: %\n", buk.pages);
+    printf(" Жанр: %s\n", buk.genre);
+    printf(" Количество экземпляров: %d\n", buk.quantity);
+}
