@@ -92,7 +92,7 @@ Book OutputBook(Book buk) {
     printf(" Название: %s\n", buk.title);
     printf(" Автор: %s\n", buk.author);
     printf(" Год издания: %d\n", buk.publication_year);
-    printf(" Количество страниц: %\n", buk.pages);
+    printf(" Количество страниц: %d\n", buk.pages);
     printf(" Жанр: %s\n", buk.genre);
     printf(" Количество экземпляров: %d\n", buk.quantity);
 }
